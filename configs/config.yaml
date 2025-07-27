@@ -1,0 +1,122 @@
+# VULCAN Configuration File
+# Video Understanding and Language-based Contextual Answer Network
+
+# Model Configuration
+model:
+  checkpoint_path: "pretrained_models/video_llama_checkpoint_last.pth"
+  config_path: "test_configs/llama2_test_config.yaml"
+  max_images_length: 45
+  max_subtitle_length: 400
+  max_new_tokens: 512
+  lora_r: 64
+  lora_alpha: 16
+  model_type: "video_llama"
+  device: "auto"  # auto, cuda, cpu
+
+# Video Processing Configuration
+processing:
+  add_subtitles: true
+  sampling_strategy: "uniform"  # uniform, keyframe, adaptive
+  frame_quality: "high"  # low, medium, high
+  enable_caching: true
+  cache_dir: "cache"
+  max_frames_per_video: 45
+  frame_resize_strategy: "maintain_aspect"
+  enhancement_enabled: false
+
+# Whisper Configuration for Subtitle Generation
+whisper:
+  model_size: "base"  # tiny, base, small, medium, large
+  language: "english"
+  audio_format: "mp3"
+  audio_bitrate: "320k"
+  temperature: 0.0
+  best_of: 5
+  beam_size: 5
+  patience: 1.0
+  length_penalty: 1.0
+  suppress_tokens: "-1"
+  initial_prompt: null
+  condition_on_previous_text: true
+  fp16: true
+  compression_ratio_threshold: 2.4
+  logprob_threshold: -1.0
+  no_speech_threshold: 0.6
+
+# Web Interface Configuration
+interface:
+  title: "VULCAN - Video Understanding and Language-based Contextual Answer Network"
+  description: "Upload a video and ask any question related to it. The model processes the video and generates an answer."
+  theme: "default"  # default, soft, monochrome
+  share: false
+  debug: false
+  server_name: "0.0.0.0"
+  server_port: 7860
+  max_queue_size: 100
+  show_error: true
+  show_progress: true
+
+# Security Configuration
+security:
+  max_file_size_mb: 500
+  allowed_extensions: [".mp4", ".avi", ".mov", ".mkv", ".webm", ".flv", ".wmv"]
+  sanitize_filenames: true
+  enable_rate_limiting: true
+  max_requests_per_minute: 10
+  block_suspicious_files: true
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/vulcan.log"
+  max_file_size_mb: 10
+  backup_count: 5
+  log_to_console: true
+  log_to_file: true
+
+# Performance Configuration
+performance:
+  enable_gpu: true
+  mixed_precision: true
+  gradient_checkpointing: false
+  max_memory_usage_gb: 16
+  batch_size: 1
+  num_workers: 4
+  prefetch_factor: 2
+  pin_memory: true
+
+# Cache Configuration
+cache:
+  enable_redis: false
+  redis_host: "localhost"
+  redis_port: 6379
+  redis_db: 0
+  cache_ttl_hours: 24
+  max_cache_size_gb: 5
+  cleanup_interval_hours: 6
+
+# Experimental Features
+experimental:
+  enable_multi_language: false
+  enable_real_time_processing: false
+  enable_scene_detection: false
+  enable_object_detection: false
+  enable_face_recognition: false
+  enable_sentiment_analysis: false
+
+# Model Download Configuration
+model_download:
+  base_url: "https://huggingface.co/Vision-CAIR/MiniGPT4-Video/resolve/main"
+  checkpoint_filename: "video_llama_checkpoint_last.pth"
+  auto_download: true
+  verify_checksum: true
+  download_timeout: 3600  # seconds
+
+# Deployment Configuration
+deployment:
+  environment: "development"  # development, staging, production
+  enable_metrics: true
+  metrics_port: 8080
+  health_check_endpoint: "/health"
+  graceful_shutdown_timeout: 30

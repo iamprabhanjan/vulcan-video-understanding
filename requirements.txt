@@ -1,0 +1,72 @@
+# VULCAN - Video Understanding and Language-based Contextual Answer Network
+# Core Dependencies
+
+# AI/ML Framework
+torch>=2.0.1
+torchvision>=0.15.2
+torchaudio>=2.0.2
+transformers>=4.37.2
+tokenizers>=0.15.2
+
+# Video Processing
+opencv-python>=4.7.0.72
+moviepy>=1.0.3
+decord>=0.6.0
+
+# Audio Processing
+soundfile>=0.12.1
+whisper>=1.1.10
+
+# Subtitle Processing
+webvtt-py>=0.4.6
+pysrt>=1.1.2
+
+# Web Interface
+gradio>=4.0.0
+
+# Data Processing
+numpy>=1.26.3
+pandas>=1.5.0
+Pillow>=9.0.0
+scikit-image>=0.22.0
+
+# Configuration and Utilities
+PyYAML>=6.0
+omegaconf>=2.3.0
+iopath>=0.1.10
+
+# Model Optimization
+bitsandbytes>=0.42.0
+peft>=0.2.0
+accelerate>=0.25.0
+
+# Monitoring and Logging
+wandb>=0.14.2
+timm>=0.6.13
+
+# Development and Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+
+# Additional Dependencies
+sentencepiece>=0.1.97
+pycocoevalcap>=1.2
+visual-genome>=1.1.1
+webdataset>=0.2.48
+
+# GPU Support (Optional)
+triton>=2.0.0
+
+# File Handling
+pytubefix
+python-magic>=0.4.24
+
+# Security
+cryptography>=3.4.8
+
+# Performance
+psutil>=5.8.0
+memory-profiler>=0.60.0
