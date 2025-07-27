@@ -208,6 +208,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <div align="center">
-  <p><strong>Built with ❤️ by Prabhanjan R</strong></p>
+  <p><strong>Built by Prabhanjan R</strong></p>
   <p><em>Advancing AI-powered video understanding</em></p>
 </div>
